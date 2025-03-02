@@ -1,6 +1,6 @@
 package dev.xkmc.l2harvester.compat;
 
-import com.simibubi.create.content.contraptions.behaviour.MovementBehaviour;
+import com.simibubi.create.api.behaviour.movement.MovementBehaviour;
 import com.simibubi.create.content.contraptions.behaviour.MovementContext;
 import dev.xkmc.l2harvester.api.HarvestableBlock;
 import net.minecraft.core.BlockPos;

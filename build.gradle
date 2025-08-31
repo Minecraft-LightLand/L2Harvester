@@ -120,11 +120,17 @@ dependencies {
 
     implementation fg.deobf("curse.maven:bookshelf-228525:4808092")
 
-    implementation fg.deobf("curse.maven:create-328085:4835191")
 
-    compileOnly("com.simibubi.create:create-1.20.1:6.0.6-168") { transitive = false }
-    compileOnly("net.createmod.ponder:Ponder-Forge-1.20.1:1.0.38") { transitive = false }
-    compileOnly("dev.engine-room.flywheel:flywheel-forge-1.20.1:1.0.0-217")
+    implementation fg.deobf(jarJar("dev.xkmc.l2harvester05x:l2harvester05x:0.1.1")) {
+        transitive = false
+        jarJar.ranged(it, "[0.1.0,)")
+    }
+
+    implementation fg.deobf(jarJar("dev.xkmc.l2harvester60x:l2harvester60x:0.1.1")) {
+        transitive = false
+        jarJar.ranged(it, "[0.1.0,)")
+    }
+
 }
 
 // Example for how to get properties into the manifest for reading at runtime.
@@ -163,4 +169,20 @@ publishing {
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+}
+
+jarJar.enable()
+
+reobf {
+    jarJar {}
+}
+
+tasks.jarJar.finalizedBy('reobfJarJar')
+
+tasks.jarJar.configure {
+    archiveClassifier.set('')
+}
+
+jar {
+    archiveClassifier.set('slim')
 }

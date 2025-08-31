@@ -65,3 +65,10 @@ Create's Harvester compatibility layer for Create 0.5.x
     versionRange="[1.20,1.21)"
     ordering="NONE"
     side="BOTH"
+[[dependencies.l2harvester05x]]
+    modId="l2harvester"
+    mandatory=true
+    # This version range declares a minimum of the current minecraft version up to but not including the next major version
+    versionRange="[0.1.1)"
+    ordering="NONE"
+    side="BOTH"

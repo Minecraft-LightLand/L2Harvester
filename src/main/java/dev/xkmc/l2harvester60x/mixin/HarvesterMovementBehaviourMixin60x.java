@@ -1,6 +1,6 @@
-package dev.xkmc.l2harvester05x.mixin;
+package dev.xkmc.l2harvester60x.mixin;
 
-import com.simibubi.create.content.contraptions.behaviour.MovementBehaviour;
+import com.simibubi.create.api.behaviour.movement.MovementBehaviour;
 import com.simibubi.create.content.contraptions.behaviour.MovementContext;
 import dev.xkmc.l2harvester.compat.HarvesterController;
 import net.minecraft.core.BlockPos;
@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Pseudo
 @Mixin(targets = "com.simibubi.create.content.contraptions.actors.harvester.HarvesterMovementBehaviour", remap = false)
-public class HarvesterMovementBehaviourMixin05x implements MovementBehaviour {
+public class HarvesterMovementBehaviourMixin60x implements MovementBehaviour {
 
 	@Inject(method = "visitNewPosition", at = @At("HEAD"), cancellable = true)
 	public void l2harvester$visitNewPosition(MovementContext context, BlockPos pos, CallbackInfo ci) {

@@ -115,7 +115,7 @@ dependencies {
     implementation("com.github.llamalad7.mixinextras:mixinextras-forge:${mixin_extras_version}")
     annotationProcessor "org.spongepowered:mixin:${mixin_version}:processor"
 
-    implementation("dev.xkmc:l2harvester:0.1.1")
+    implementation fg.deobf("dev.xkmc:l2harvester:0.1.1")
     implementation fg.deobf("mezz.jei:jei-${jei_minecraft_version}:${jei_version}")
 
     runtimeOnly fg.deobf("curse.maven:badpackets-615134:4438956")

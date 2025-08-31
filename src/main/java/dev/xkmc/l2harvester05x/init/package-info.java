@@ -1,7 +1,7 @@
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-package dev.xkmc.l2harvester.compat;
+package dev.xkmc.l2harvester05x.init;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 

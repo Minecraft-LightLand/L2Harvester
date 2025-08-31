@@ -1,0 +1,16 @@
+{
+	"required": false,
+	"priority": 1000,
+	"package": "dev.xkmc.l2harvester05x.mixin",
+	"compatibilityLevel": "JAVA_17",
+	"refmap": "l2harvester05x.refmap.json",
+	"mixins": [
+		"HarvesterMovementBehaviourMixin05x"
+	],
+	"client": [
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"minVersion": "0.8"
+}

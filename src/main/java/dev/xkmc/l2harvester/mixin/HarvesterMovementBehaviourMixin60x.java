@@ -12,14 +12,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Pseudo
 @Mixin(targets = "com.simibubi.create.content.contraptions.actors.harvester.HarvesterMovementBehaviour", remap = false)
-public class HarvesterMovementBehaviourMixin implements MovementBehaviour {
+public class HarvesterMovementBehaviourMixin60x implements MovementBehaviour {
 
 	@Inject(method = "visitNewPosition", at = @At("HEAD"), cancellable = true)
 	public void l2harvester$visitNewPosition(MovementContext context, BlockPos pos, CallbackInfo ci) {
-		if (HarvesterController.visitNewPosition(this, context, pos)) {
+		if (HarvesterController.visitNewPosition(stack -> dropItem(context, stack), context.world, pos)) {
 			ci.cancel();
 		}
 	}
-
 
 }

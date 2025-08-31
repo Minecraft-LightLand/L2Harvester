@@ -1,23 +1,23 @@
 package dev.xkmc.l2harvester.compat;
 
-import com.simibubi.create.api.behaviour.movement.MovementBehaviour;
-import com.simibubi.create.content.contraptions.behaviour.MovementContext;
 import dev.xkmc.l2harvester.api.HarvestableBlock;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
+import java.util.function.Consumer;
+
 public class HarvesterController {
 
-	public static boolean visitNewPosition(MovementBehaviour self, MovementContext context, BlockPos pos) {
-		Level level = context.world;
+	public static boolean visitNewPosition(Consumer<ItemStack> consumer, Level level, BlockPos pos) {
 		if (level.isClientSide) return false;
 		BlockState state = level.getBlockState(pos);
 		if (!(state.getBlock() instanceof HarvestableBlock block)) return false;
 		var ans = block.getHarvestResult(level, state, pos);
 		if (ans == null) return true;
 		for (var e : ans.drops())
-			self.dropItem(context, e);
+			consumer.accept(e);
 		ans.updateState(level, pos);
 		return true;
 	}
